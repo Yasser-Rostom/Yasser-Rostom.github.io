@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/app/sections/navigation_bar/layouts/mobile_layout/widgets/drawer.dart';
 import 'package:portfolio/app/sections/navigation_bar/navigation_bar.dart';
+import 'package:portfolio/app/widgets/footer.dart';
 import 'package:portfolio/core/color/colors.dart';
 import 'package:portfolio/core/services/scrolling_provider.dart';
 import 'package:portfolio/core/utils/views_util.dart';
-import 'package:portfolio/core/widgets/centered_view.dart';
+import 'package:portfolio/app/widgets/centered_view.dart';
 import 'package:portfolio/locator.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
@@ -45,7 +46,9 @@ class LayoutTemplate extends StatelessWidget {
                  ),
                    ),
             ),
+
           ],
+
         ),
       ),
     );

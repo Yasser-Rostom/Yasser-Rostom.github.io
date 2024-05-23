@@ -9,9 +9,9 @@ import 'package:portfolio/app/utils/service_utils.dart';
 import 'package:portfolio/core/color/colors.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
 import 'package:portfolio/core/links/links.dart';
-import 'package:portfolio/core/widgets/action_button.dart';
-import 'package:portfolio/core/widgets/gradient_outlined_button.dart';
-import 'package:portfolio/core/widgets/section_container.dart';
+import 'package:portfolio/app/widgets/action_button.dart';
+import 'package:portfolio/app/widgets/gradient_outlined_button.dart';
+import 'package:portfolio/app/widgets/section_container.dart';
 
 class ServiceContentDesktop extends StatelessWidget {
   const ServiceContentDesktop({super.key});

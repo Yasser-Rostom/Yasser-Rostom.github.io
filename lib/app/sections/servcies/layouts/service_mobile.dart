@@ -4,8 +4,8 @@ import 'package:portfolio/app/sections/servcies/widgets/service_card.dart';
 import 'package:portfolio/app/utils/service_utils.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
 import 'package:portfolio/core/links/links.dart';
-import 'package:portfolio/core/widgets/action_button.dart';
-import 'package:portfolio/core/widgets/section_container.dart';
+import 'package:portfolio/app/widgets/action_button.dart';
+import 'package:portfolio/app/widgets/section_container.dart';
 
 class ServiceContentMobile extends StatelessWidget {
   const ServiceContentMobile({super.key});

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/core/fonts.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
 import 'package:portfolio/core/links/links.dart';
-import 'package:portfolio/core/widgets/action_button.dart';
+import 'package:portfolio/app/widgets/action_button.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class About extends StatelessWidget {

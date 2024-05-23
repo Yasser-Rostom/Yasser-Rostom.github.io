@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/app/utils/project_utils.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
-import 'package:portfolio/core/widgets/gradient_border_container.dart';
+import 'package:portfolio/app/widgets/gradient_border_container.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class ProjectCard extends StatelessWidget {

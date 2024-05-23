@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/utils/contact_utils.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
-import 'package:portfolio/core/widgets/gradient_border_container.dart';
-import 'package:portfolio/core/widgets/section_container.dart';
+import 'package:portfolio/app/widgets/gradient_border_container.dart';
+import 'package:portfolio/app/widgets/section_container.dart';
 
 
 class ContactDesktop extends StatelessWidget {

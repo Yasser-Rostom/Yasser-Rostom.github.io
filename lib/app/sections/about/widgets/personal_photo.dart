@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/widgets/gradient_border_container.dart';
+import 'package:portfolio/app/widgets/gradient_border_container.dart';
 
 class PersonalPhoto extends StatelessWidget {
   const PersonalPhoto({super.key, required this.size,});

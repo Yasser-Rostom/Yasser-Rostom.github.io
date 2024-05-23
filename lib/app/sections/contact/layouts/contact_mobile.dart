@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/utils/contact_utils.dart';
-import 'package:portfolio/app/utils/project_utils.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
-import 'package:portfolio/core/links/links.dart';
-import 'package:portfolio/core/widgets/action_button.dart';
-import 'package:portfolio/core/widgets/gradient_border_container.dart';
-import 'package:portfolio/core/widgets/section_container.dart';
+import 'package:portfolio/app/widgets/gradient_border_container.dart';
+import 'package:portfolio/app/widgets/section_container.dart';
 
 class ContactMobileTab extends StatelessWidget {
   const ContactMobileTab({Key? key}) : super(key: key);
