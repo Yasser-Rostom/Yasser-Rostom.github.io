@@ -14,26 +14,29 @@ class ContactDesktop extends StatelessWidget {
       bgColor: Colors.black,
       width: 150,
       shape: BoxShape.rectangle,
-      child:  SectionContainer(title: "Get in Touch",
-        subTitle: "Let's jumpstart your project with a fresh and exciting beginning, setting the stage for success.",
-        mainChild: Wrap(
-            alignment: WrapAlignment.center,
-            runSpacing: 50,
-            children: contactUtils
-                .asMap()
-                .entries
-                .map((e) => IconButton(
-              icon: Image.network(
-                e.value.icon,
-                color: Colors.white,
-              ),
-              onPressed: () => openURL(e.value.url),
-              highlightColor: Colors.white54,
-            ))
-                .toList()),
+      child:  Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SectionContainer(title: "Get in Touch",
+          subTitle: "Let's jumpstart your project with a fresh and exciting beginning, setting the stage for success.",
+          mainChild: Wrap(
+              alignment: WrapAlignment.center,
+              runSpacing: 50,
+              children: contactUtils
+                  .asMap()
+                  .entries
+                  .map((e) => IconButton(
+                icon: Image.network(
+                  e.value.icon,
+                  color: Colors.white,
+                ),
+                onPressed: () => openURL(e.value.url),
+                highlightColor: Colors.white54,
+              ))
+                  .toList()),
 
 
 
+        ),
       ),
     );
   }

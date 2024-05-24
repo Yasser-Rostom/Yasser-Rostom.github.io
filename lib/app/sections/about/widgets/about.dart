@@ -14,8 +14,8 @@ class About extends StatelessWidget {
     return ResponsiveBuilder(builder: (context, sizingInformation) {
       double titleSize =
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? 50
-              : 80;
+              ? 28
+              : 50;
       double descriptionSize =
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
               ? 16
@@ -36,15 +36,24 @@ class About extends StatelessWidget {
                   color: Colors.white),
             ),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
-            Text('I\'m Yasser Rostom', style: AppStyle.text50PxMediumWhite),
+            Text('I\'m Yasser Rostom', style: TextStyle(
+                fontWeight: FontWeight.w800,
+                height: 0.9,
+                fontSize: titleSize,
+                color: Colors.white),
+            ),
             const SizedBox(
-              height: 25,
+              height: 15,
             ),
             Text(
               'Mobile App Dev',
-              style: AppStyle.text24PxMediumWhite,
+              style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  height: 0.9,
+                  fontSize: descriptionSize,
+                  color: Colors.white),
             ),
             const SizedBox(
               height: 30,
@@ -57,10 +66,15 @@ class About extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            ActionGradientButton(
+            sizingInformation.deviceScreenType == DeviceScreenType.mobile?   Center(
+              child: ActionGradientButton(
+                buttonLabel: "DOWNLOAD CV",
+                onTap: () => {openURL(cv)},
+              ),
+            ):ActionGradientButton(
               buttonLabel: "DOWNLOAD CV",
               onTap: () => {openURL(cv)},
-            )
+            ),
           ],
         ),
       );

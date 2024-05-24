@@ -1,7 +1,7 @@
 const String HomeRoute = "home";
 const String ProjectsRoute = "projects";
-const String ContactRoute = "contact";
 const String ServicesRoute = "service";
+const String ContactRoute = "contact";
 
 
 const int HomeIndex = 0;

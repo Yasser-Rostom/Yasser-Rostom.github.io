@@ -14,7 +14,7 @@ class NavDrawerHeader extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Text(
-            'SKILL UP NOW',
+            'Craft Your Next Project',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w800,
@@ -22,7 +22,7 @@ class NavDrawerHeader extends StatelessWidget {
             ),
           ),
           Text(
-            'TAP HERE',
+            'With Me',
             style: TextStyle(color: Colors.white),
           )
         ],

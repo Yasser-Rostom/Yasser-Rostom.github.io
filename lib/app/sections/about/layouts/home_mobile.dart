@@ -11,11 +11,11 @@ class HomeContentMobile extends StatelessWidget {
     return  SingleChildScrollView(
       child: Column(
         mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const About(),
-          const  SizedBox(height: 100,),
-          PersonalPhoto(size: (MediaQuery.of(context).size.width + MediaQuery.of(context).size.height)*0.1 ,)
+          const  SizedBox(height: 50,),
+          PersonalPhoto(size: (MediaQuery.of(context).size.width + MediaQuery.of(context).size.height)*0.2 ,)
         ],
       ),
     );

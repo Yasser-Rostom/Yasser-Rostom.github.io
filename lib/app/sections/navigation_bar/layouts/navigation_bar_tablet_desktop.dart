@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:portfolio/app/sections/navigation_bar/widget/nav_logo.dart';
 import 'package:portfolio/app/sections/navigation_bar/widget/navigation_button.dart';
 import 'package:portfolio/core/routing/routes.dart';
@@ -9,10 +11,11 @@ class NavigationBarTabletDesktop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       color: CupertinoColors.black,
-      padding: EdgeInsets.only(left: MediaQuery.of(context).size.width *0.2,right: MediaQuery.of(context).size.width *0.2),
+width: double.infinity,
       height: 60,
-      child: const Row(
+      child:  const Row(mainAxisAlignment: MainAxisAlignment.center,
         children: [
           NavBarLogo(),
            Spacer(),
@@ -20,11 +23,8 @@ class NavigationBarTabletDesktop extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               NavBarActionButton(title: "Home", navigationIndex: HomeIndex),
-              SizedBox(width: 10,),
               NavBarActionButton(title: "Services", navigationIndex: ServiceIndex),
-              SizedBox(width: 10,),
               NavBarActionButton(title: "Projects", navigationIndex: ProjectIndex),
-              SizedBox(width: 10,),
               NavBarActionButton(title: "Contact",navigationIndex: ContactIndex,)
             ],
           )

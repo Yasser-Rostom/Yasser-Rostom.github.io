@@ -11,7 +11,7 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 30, top: 60),
+      padding: const EdgeInsets.only(left: 30, top: 10),
       child: Row(
         children: <Widget>[
           Icon(icon,color: CupertinoColors.white,),
