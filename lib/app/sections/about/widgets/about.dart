@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:portfolio/core/fonts.dart';
 import 'package:portfolio/core/helper/url_launcher.dart';
 import 'package:portfolio/core/links/links.dart';
 import 'package:portfolio/app/widgets/action_button.dart';
@@ -59,7 +58,7 @@ class About extends StatelessWidget {
               height: 30,
             ),
             Text(
-              'A well-versed mobile developer with years\' experience in the tech industry. Love working on exciting and\nchallenging apps. I enjoy working solo, but I reach the moon when working on a team.',
+              'A well-versed mobile developer with years\' experience in the tech industry. Love working on exciting and challenging apps. I enjoy working solo, but I reach the moon when working on a team.',
               style: TextStyle(
                   fontSize: descriptionSize, height: 1.7, color: Colors.white),
             ),
