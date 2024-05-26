@@ -9,6 +9,7 @@ class CenteredView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint("screen size: ${MediaQuery.of(context).size.width}");
     return Container(
       alignment: Alignment.topCenter,
       decoration: const BoxDecoration(
@@ -17,7 +18,7 @@ class CenteredView extends StatelessWidget {
       ),
     ),
       child: ConstrainedBox(
-        constraints:  BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
+        constraints:  BoxConstraints(maxWidth: MediaQuery.of(context).size.width<510? MediaQuery.of(context).size.width * 0.9:MediaQuery.of(context).size.width * 0.7),
         child: child,
       ),
     );

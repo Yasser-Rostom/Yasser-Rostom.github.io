@@ -4,4 +4,4 @@ This Flutter-based site highlights my skills, services, projects, and provides s
 
 ## Live Demo
 
-You can explore the live version of the website [Click to see live demo](https://yasser-rostom.github.io/).
+You can explore the live version of the portfolio: [Click to see live demo](https://yasser-rostom.github.io/).
