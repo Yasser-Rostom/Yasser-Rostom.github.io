@@ -61,6 +61,14 @@ List<ProjectUtils> projectUtils = [
       stack: "Flutter, BLoC, Admob, Unit Testing, Figma",
       projectUrl:
           "https://www.solomasapp.com/"),
+  ProjectUtils(
+      title: "Memorize Words",
+      imgUrl: "assets/projects/memorize_words.jpeg",
+      projectDesc:
+          "With Memorize Words, you can easily save, share, and memorize vocabularies!",
+      stack: "Java, Unit Testing, MVVM, Room, SQL",
+      projectUrl:
+          "https://play.google.com/store/apps/details?id=com.yasser.memorizewords&hl=en_US"),
 ];
 
 //
