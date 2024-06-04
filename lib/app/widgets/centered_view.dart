@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:portfolio/core/animations/entering_fading_effect.dart';
 
 class CenteredView extends StatelessWidget {
   final Widget child;
@@ -9,7 +10,6 @@ class CenteredView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint("screen size: ${MediaQuery.of(context).size.width}");
     return Container(
       alignment: Alignment.topCenter,
       decoration: const BoxDecoration(

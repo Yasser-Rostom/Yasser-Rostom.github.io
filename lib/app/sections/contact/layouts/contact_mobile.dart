@@ -6,11 +6,10 @@ import 'package:portfolio/app/widgets/gradient_border_container.dart';
 import 'package:portfolio/app/widgets/section_container.dart';
 
 class ContactMobileTab extends StatelessWidget {
-  const ContactMobileTab({Key? key}) : super(key: key);
+  const ContactMobileTab({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return GradientBorderContainer(
       bgColor: Colors.black,
       width: 250,

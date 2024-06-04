@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/app/sections/navigation_bar/layouts/mobile_layout/widgets/drawer.dart';
 import 'package:portfolio/app/sections/navigation_bar/navigation_bar.dart';
+import 'package:portfolio/core/animations/entering_fading_effect.dart';
 import 'package:portfolio/core/color/colors.dart';
 import 'package:portfolio/core/services/scrolling_provider.dart';
 import 'package:portfolio/core/utils/views_util.dart';
@@ -35,7 +36,7 @@ class LayoutTemplate extends StatelessWidget {
                          child: ScrollablePositionedList.builder(
                    padding: EdgeInsets.zero,
                    itemCount: BodyUtils.views.length,
-                   itemBuilder: (context, index) => BodyUtils.views[index],
+                   itemBuilder: (context, index) => EntranceFader(child: BodyUtils.views[index]),
                    itemScrollController: locator<ScrollProvider>().itemScrollController,
                  ),
                    ),
