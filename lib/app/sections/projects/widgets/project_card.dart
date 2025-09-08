@@ -1,8 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/app/utils/project_utils.dart';
-import 'package:portfolio/core/helper/url_launcher.dart';
 import 'package:portfolio/app/widgets/gradient_border_container.dart';
+import 'package:portfolio/core/helper/url_launcher.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -26,10 +27,10 @@ class ProjectCard extends StatelessWidget {
           sizingInformation.deviceScreenType == DeviceScreenType.mobile
               ? 12
               : 14;
-    
+
       return GradientBorderContainer(
         shape: BoxShape.rectangle,
-       width: width,
+        width: width,
         child: InkWell(
           onTap: () {
             openURL(project.projectUrl);
@@ -41,18 +42,27 @@ class ProjectCard extends StatelessWidget {
                 width: width,
                 height: 250,
                 decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(22)),
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(22),topRight: Radius.circular(22)),
                   // color: Colors.red
                 ),
                 clipBehavior: Clip.antiAlias,
-                child: Image.asset(
-                  project.imgUrl,
-                  fit: BoxFit.fitWidth,
-                ),
+                child: project.imgUrl.isEmpty
+                    ? Image.asset(
+                        'assets/placeholder.png',
+                      )
+                    : CachedNetworkImage(
+                        imageUrl: project.imgUrl,
+                        memCacheWidth: 700,
+                        width: width,
+                        height: 250,fit: BoxFit.cover,
+                        cacheKey: project.imgUrl,
+                        placeholder: (_, __) =>
+                            Container(color: Colors.grey[300]),
+                        errorWidget: (_, __, ___) =>
+                            const Icon(Icons.broken_image_rounded),
+                      ),
               ),
-              const SizedBox(
-                height: 10,
-              ),
+
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
