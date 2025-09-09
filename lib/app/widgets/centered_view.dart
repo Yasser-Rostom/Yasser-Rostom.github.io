@@ -12,10 +12,10 @@ class CenteredView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.topCenter,
-      decoration: const BoxDecoration(
-      gradient: RadialGradient( radius:0.9,  center:Alignment.bottomCenter,colors: [Color(0xff374ABE),CupertinoColors.black,],
+      decoration: const BoxDecoration(color: Colors.black
+   //   gradient: RadialGradient( radius:0.9,  center:Alignment.bottomCenter,colors: [Color(0xff374ABE),CupertinoColors.black,],
 
-      ),
+   //   ),
     ),
       child: ConstrainedBox(
         constraints:  BoxConstraints(maxWidth: MediaQuery.of(context).size.width<510? MediaQuery.of(context).size.width * 0.9:MediaQuery.of(context).size.width * 0.7),

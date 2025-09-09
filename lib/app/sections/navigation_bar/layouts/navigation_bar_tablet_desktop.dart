@@ -8,22 +8,31 @@ class NavigationBarTabletDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      padding:  EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width<510? MediaQuery.of(context).size.width * 0.01:MediaQuery.of(context).size.width * 0.03),
+    return Container(
+      padding: EdgeInsets.symmetric(
+          horizontal: MediaQuery.of(context).size.width < 510
+              ? MediaQuery.of(context).size.width * 0.01
+              : MediaQuery.of(context).size.width * 0.03),
       color: CupertinoColors.black,
-width: double.infinity,
-      height: 60,
-      child:  const Row(mainAxisAlignment: MainAxisAlignment.center,
+      width: double.infinity,
+      height: 100,
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           NavBarLogo(),
-           Spacer(),
-           Row(
+          Spacer(),
+          Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               NavBarActionButton(title: "Home", navigationIndex: HomeIndex),
-              NavBarActionButton(title: "Services", navigationIndex: ServiceIndex),
-              NavBarActionButton(title: "Projects", navigationIndex: ProjectIndex),
-              NavBarActionButton(title: "Contact",navigationIndex: ContactIndex,)
+              NavBarActionButton(
+                  title: "Services", navigationIndex: ServiceIndex),
+              NavBarActionButton(
+                  title: "Projects", navigationIndex: ProjectIndex),
+              NavBarActionButton(
+                title: "Contact",
+                navigationIndex: ContactIndex,
+              )
             ],
           )
         ],
@@ -31,5 +40,3 @@ width: double.infinity,
     );
   }
 }
-
-
