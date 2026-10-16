@@ -1,10 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfolio/app/layout_template.dart';
-import 'package:portfolio/locator.dart';
+import 'package:portfolio/app/theme/portfolio_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'app/utils/project_utils.dart';
 import 'firebase_options.dart';
 
 // Future<void> pushProjectsToFirestore() async {
@@ -16,11 +14,10 @@ import 'firebase_options.dart';
 //
 // }
 Future<void> main() async {
-  setupLocator();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
- // await pushProjectsToFirestore();
+  // await pushProjectsToFirestore();
   runApp(const MyApp());
 }
 
@@ -36,7 +33,8 @@ class MyApp extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Yasser Rostom - Portfolio',
+            title: 'Yasser Rostom | Senior Software Engineer, Mobile & Backend',
+            theme: portfolioTheme,
             initialRoute: "/",
             routes: {"/": (context) => const LayoutTemplate()},
           );

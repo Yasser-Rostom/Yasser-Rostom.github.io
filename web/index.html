@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Personal Portfolio built using Flutter">
+  <meta name="description" content="Yasser Rostom is a Senior Software Engineer at Zyka LLC (Grabbl), building Flutter mobile apps, white-label platforms, and NestJS backends.">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,6 +17,130 @@
   <title>Yasser Rostom | Portfolio</title>
   <link rel="manifest" href="manifest.json">
 
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f4ef;
+      --ink: #101714;
+      --muted: #68716c;
+      --accent: #648845;
+      --green: #b8f36b;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      background: var(--paper);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    #loading {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--paper);
+      color: var(--ink);
+      transition: opacity 220ms ease, visibility 220ms ease;
+    }
+
+    #loading.is-hidden {
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .loading-card {
+      width: min(100%, 440px);
+    }
+
+    .loading-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 52px;
+    }
+
+    .loading-monogram {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .loading-name {
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+    }
+
+    .loading-kicker {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .loading-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+
+    .loading-title {
+      margin: 20px 0 10px;
+      font-size: clamp(30px, 8vw, 42px);
+      letter-spacing: -1.8px;
+      line-height: 1.05;
+    }
+
+    .loading-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .loading-track {
+      height: 2px;
+      margin-top: 34px;
+      overflow: hidden;
+      background: #e1e2dc;
+    }
+
+    .loading-progress {
+      width: 35%;
+      height: 100%;
+      background: var(--accent);
+      animation: progress 1.6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      50% { opacity: .45; }
+    }
+
+    @keyframes progress {
+      from { transform: translateX(-110%); }
+      to { transform: translateX(310%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+
   <script>
     // The value below is injected by flutter build, do not touch.
     const serviceWorkerVersion = null;
@@ -25,16 +149,18 @@
   <script src="flutter.js" defer></script>
 </head>
 <body>
-<div id="loading" style="
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: #111; color: white;
-  display: flex; justify-content: center; align-items: center;
-  font-size: 24px; z-index: 9999;
-">
-  Loading portfolio...
-</div>
+  <div id="loading" role="status" aria-live="polite" aria-label="Loading Yasser Rostom’s portfolio">
+    <div class="loading-card">
+      <div class="loading-brand">
+        <span class="loading-monogram">YR.</span>
+        <span class="loading-name">YASSER ROSTOM</span>
+      </div>
+      <div class="loading-kicker"><span class="loading-dot"></span>DUBAI, UAE</div>
+      <h1 class="loading-title">A portfolio, loading.</h1>
+      <p class="loading-subtitle">Senior Software Engineer · Mobile &amp; Backend</p>
+      <div class="loading-track" aria-hidden="true"><div class="loading-progress"></div></div>
+    </div>
+  </div>
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -45,7 +171,7 @@
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
             appRunner.runApp();
-                      document.getElementById('loading').style.display = 'none'; // hide here
+            document.getElementById('loading').classList.add('is-hidden');
 
           });
         }
