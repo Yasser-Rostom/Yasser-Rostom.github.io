@@ -98,7 +98,26 @@ class ExperienceSection extends StatelessWidget {
       ),
     );
 
-    if (mobile) return text;
+    if (mobile) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          text,
+          const SizedBox(height: 22),
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(14),
+              child: Image.asset(
+                'assets/personal_photo.png',
+                width: 150,
+                height: 170,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
 
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,

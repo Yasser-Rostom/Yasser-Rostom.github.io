@@ -15,6 +15,9 @@ class IntroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewportWidth = MediaQuery.sizeOf(context).width;
+    final showPortrait = !mobile && viewportWidth >= 1000;
+
     return Container(
       color: PortfolioPalette.paper,
       padding: EdgeInsets.fromLTRB(
@@ -29,7 +32,7 @@ class IntroSection extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(child: _introCopy(context)),
-            if (!mobile) ...[
+            if (showPortrait) ...[
               const SizedBox(width: 56),
               ClipRRect(
                 borderRadius: BorderRadius.circular(18),
@@ -48,6 +51,15 @@ class IntroSection extends StatelessWidget {
   }
 
   Widget _introCopy(BuildContext context) {
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    final titleSize = !mobile
+        ? (screenWidth < 1000 ? 60.0 : 82.0)
+        : screenWidth < 360
+            ? 40.0
+            : screenWidth < 400
+                ? 44.0
+                : 48.0;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,12 +74,12 @@ class IntroSection extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            const Text(
-              'HELLO, I’M YASSER  ·  DUBAI, UAE',
+            Text(
+              'HELLO, I’M YASSER · DUBAI',
               style: TextStyle(
                 color: PortfolioPalette.accent,
-                letterSpacing: 1.4,
-                fontSize: 11,
+                letterSpacing: 1,
+                fontSize: mobile ? 10 : 11,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -79,8 +91,8 @@ class IntroSection extends StatelessWidget {
           style: TextStyle(
             color: PortfolioPalette.ink,
             height: .98,
-            fontSize: mobile ? 48 : 82,
-            letterSpacing: -4,
+            fontSize: titleSize,
+            letterSpacing: mobile && screenWidth < 360 ? -2.5 : -4,
             fontWeight: FontWeight.w700,
           ),
         ),

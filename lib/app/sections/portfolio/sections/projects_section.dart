@@ -147,64 +147,109 @@ class _ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       margin: const EdgeInsets.only(bottom: 11),
       padding: EdgeInsets.all(mobile ? 18 : 23),
       decoration: BoxDecoration(
         color: PortfolioPalette.paper,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            number.toString().padLeft(2, '0'),
-            style: const TextStyle(color: Color(0xFF799B54), fontSize: 12),
-          ),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  _title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: PortfolioPalette.ink,
-                  ),
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  _description,
-                  style: const TextStyle(
-                    color: PortfolioPalette.muted,
-                    height: 1.55,
-                    fontSize: 13,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  _stack,
-                  style: const TextStyle(
-                    fontSize: 10,
-                    letterSpacing: .6,
-                    fontWeight: FontWeight.w700,
-                    color: PortfolioPalette.ink,
-                  ),
-                ),
-              ],
+      child: mobile ? _mobileLayout() : _desktopLayout(),
+    );
+  }
+
+  Widget _mobileLayout() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              number.toString().padLeft(2, '0'),
+              style: const TextStyle(color: Color(0xFF799B54), fontSize: 12),
             ),
+            const SizedBox(width: 12),
+            Expanded(child: _titleText),
+            if (_url.isNotEmpty)
+              IconButton(
+                onPressed: () => openURL(_url),
+                padding: EdgeInsets.zero,
+                visualDensity: VisualDensity.compact,
+                constraints:
+                    const BoxConstraints.tightFor(width: 32, height: 32),
+                icon: const Icon(
+                  Icons.north_east,
+                  size: 17,
+                  color: PortfolioPalette.muted,
+                ),
+              ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        _projectDetails,
+      ],
+    );
+  }
+
+  Widget _desktopLayout() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          number.toString().padLeft(2, '0'),
+          style: const TextStyle(color: Color(0xFF799B54), fontSize: 12),
+        ),
+        const SizedBox(width: 20),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [_titleText, const SizedBox(height: 8), _projectDetails],
           ),
+        ),
+        if (_url.isNotEmpty)
           IconButton(
-            onPressed: _url.isEmpty ? null : () => openURL(_url),
+            onPressed: () => openURL(_url),
             icon: const Icon(
               Icons.north_east,
               size: 18,
               color: PortfolioPalette.muted,
             ),
           ),
-        ],
-      ),
+      ],
     );
   }
+
+  Widget get _titleText => Text(
+        _title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w700,
+          color: PortfolioPalette.ink,
+        ),
+      );
+
+  Widget get _projectDetails => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            _description,
+            style: const TextStyle(
+              color: PortfolioPalette.muted,
+              height: 1.55,
+              fontSize: 13,
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            _stack,
+            style: const TextStyle(
+              fontSize: 10,
+              letterSpacing: .6,
+              fontWeight: FontWeight.w700,
+              color: PortfolioPalette.ink,
+            ),
+          ),
+        ],
+      );
 }

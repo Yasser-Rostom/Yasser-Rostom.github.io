@@ -19,6 +19,8 @@ class SectionFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewportWidth = MediaQuery.sizeOf(context).width;
+
     return Container(
       color: backgroundColor,
       padding: EdgeInsets.symmetric(
@@ -44,7 +46,7 @@ class SectionFrame extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: mobile ? 34 : 48,
+                  fontSize: mobile ? (viewportWidth < 360 ? 30 : 34) : 48,
                   height: 1.05,
                   letterSpacing: -1.8,
                   fontWeight: FontWeight.w700,

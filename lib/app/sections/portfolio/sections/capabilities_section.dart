@@ -14,42 +14,54 @@ class CapabilitiesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final viewportWidth = MediaQuery.sizeOf(context).width;
+    const cards = [
+      _CapabilityCard(
+        number: '01',
+        title: 'Mobile apps from idea to launch',
+        description:
+            'At Grabbl, I work across a white-label marketplace: Flutter apps for customers and merchants, NestJS services, PostgreSQL, and the integrations behind ordering, payments, and delivery.',
+        skills: 'Flutter · NestJS · TypeScript · PostgreSQL',
+      ),
+      _CapabilityCard(
+        number: '02',
+        title: 'Improve an existing app',
+        description:
+            'I help teams improve mobile experiences, add features, and work through the engineering behind them—from app performance and reliability to backend connections.',
+        skills: 'App improvements · Features · Reliability',
+      ),
+      _CapabilityCard(
+        number: '03',
+        title: 'Working with a team',
+        description:
+            'I can join an existing product team, take ownership of a piece of work, and collaborate with engineers, designers, and product leads to move it forward.',
+        skills: 'Teamwork · Ownership · Delivery',
+      ),
+    ];
+
     return SectionFrame(
       key: sectionKey,
       mobile: mobile,
       eyebrow: 'WHAT I WORK ON',
       title: 'Mobile apps, from\ninterface to backend.',
-      child: GridView.count(
-        shrinkWrap: true,
-        physics: const NeverScrollableScrollPhysics(),
-        crossAxisCount: mobile ? 1 : 3,
-        childAspectRatio: mobile ? 2.3 : 1.05,
-        crossAxisSpacing: 15,
-        mainAxisSpacing: 15,
-        children: const [
-          _CapabilityCard(
-            number: '01',
-            title: 'Mobile apps from idea to launch',
-            description:
-                'At Grabbl, I work across a white-label marketplace: Flutter apps for customers and merchants, NestJS services, PostgreSQL, and the integrations behind ordering, payments, and delivery.',
-            skills: 'Flutter · NestJS · TypeScript · PostgreSQL',
-          ),
-          _CapabilityCard(
-            number: '02',
-            title: 'Improve an existing app',
-            description:
-                'I help teams improve mobile experiences, add features, and work through the engineering behind them—from app performance and reliability to backend connections.',
-            skills: 'App improvements · Features · Reliability',
-          ),
-          _CapabilityCard(
-            number: '03',
-            title: 'Working with a team',
-            description:
-                'I can join an existing product team, take ownership of a piece of work, and collaborate with engineers, designers, and product leads to move it forward.',
-            skills: 'Teamwork · Ownership · Delivery',
-          ),
-        ],
-      ),
+      child: mobile
+          ? Column(
+              children: [
+                for (var index = 0; index < cards.length; index++) ...[
+                  if (index > 0) const SizedBox(height: 14),
+                  cards[index],
+                ],
+              ],
+            )
+          : GridView.count(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: viewportWidth < 1180 ? 2 : 3,
+              childAspectRatio: viewportWidth < 1180 ? .95 : 1.05,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+              children: cards,
+            ),
     );
   }
 }
@@ -98,14 +110,12 @@ class _CapabilityCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 11),
-          Expanded(
-            child: Text(
-              description,
-              style: const TextStyle(
-                color: PortfolioPalette.muted,
-                height: 1.55,
-                fontSize: 13,
-              ),
+          Text(
+            description,
+            style: const TextStyle(
+              color: PortfolioPalette.muted,
+              height: 1.55,
+              fontSize: 13,
             ),
           ),
           const SizedBox(height: 12),

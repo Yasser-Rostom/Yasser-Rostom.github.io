@@ -13,10 +13,12 @@ class PortfolioNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final compact = MediaQuery.sizeOf(context).width < 380;
+
     return Container(
       color: PortfolioPalette.paper,
       padding: EdgeInsets.symmetric(
-        horizontal: mobile ? 22 : 72,
+        horizontal: mobile ? (compact ? 14 : 22) : 72,
         vertical: 22,
       ),
       child: Row(
@@ -31,26 +33,39 @@ class PortfolioNavigation extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          const Text(
-            'YASSER ROSTOM',
-            style: TextStyle(
-              fontSize: 11,
-              letterSpacing: 1.6,
-              fontWeight: FontWeight.w700,
-              color: PortfolioPalette.muted,
+          if (!compact)
+            const Text(
+              'YASSER ROSTOM',
+              style: TextStyle(
+                fontSize: 11,
+                letterSpacing: 1.6,
+                fontWeight: FontWeight.w700,
+                color: PortfolioPalette.muted,
+              ),
             ),
-          ),
           const Spacer(),
           if (!mobile) ...[
             _NavigationLink(title: 'What I do', onPressed: () => onNavigate(1)),
             _NavigationLink(title: 'Work', onPressed: () => onNavigate(2)),
             _NavigationLink(title: 'About', onPressed: () => onNavigate(3)),
             const SizedBox(width: 20),
+          ] else ...[
+            PopupMenuButton<int>(
+              tooltip: 'Navigate sections',
+              onSelected: onNavigate,
+              icon: const Icon(Icons.menu, color: PortfolioPalette.ink),
+              itemBuilder: (context) => const [
+                PopupMenuItem(value: 1, child: Text('What I do')),
+                PopupMenuItem(value: 2, child: Text('Work')),
+                PopupMenuItem(value: 3, child: Text('About')),
+                PopupMenuItem(value: 4, child: Text('Get in touch')),
+              ],
+            ),
           ],
           OutlinedButton.icon(
             onPressed: () => onNavigate(4),
             icon: const Icon(Icons.arrow_outward, size: 15),
-            label: const Text('Get in touch'),
+            label: Text(compact ? 'Contact' : 'Get in touch'),
             style: OutlinedButton.styleFrom(
               foregroundColor: PortfolioPalette.ink,
               side: const BorderSide(color: PortfolioPalette.ink),

@@ -13,24 +13,47 @@ class SiteFooter extends StatelessWidget {
         horizontal: mobile ? 24 : 76,
         vertical: 22,
       ),
-      child: const Row(
-        children: [
-          Text(
-            'YASSER ROSTOM',
-            style: TextStyle(
-              color: PortfolioPalette.ink,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 1,
-              fontSize: 11,
+      child: mobile
+          ? const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _FooterName(),
+                SizedBox(height: 8),
+                _FooterAvailability(),
+              ],
+            )
+          : const Row(
+              children: [
+                _FooterName(),
+                Spacer(),
+                _FooterAvailability(),
+              ],
             ),
-          ),
-          Spacer(),
-          Text(
-            'Dubai, UAE  ·  Open to opportunities',
-            style: TextStyle(color: PortfolioPalette.muted, fontSize: 11),
-          ),
-        ],
-      ),
     );
   }
+}
+
+class _FooterName extends StatelessWidget {
+  const _FooterName();
+
+  @override
+  Widget build(BuildContext context) => const Text(
+        'YASSER ROSTOM',
+        style: TextStyle(
+          color: PortfolioPalette.ink,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 1,
+          fontSize: 11,
+        ),
+      );
+}
+
+class _FooterAvailability extends StatelessWidget {
+  const _FooterAvailability();
+
+  @override
+  Widget build(BuildContext context) => const Text(
+        'Dubai, UAE  ·  Open to opportunities',
+        style: TextStyle(color: PortfolioPalette.muted, fontSize: 11),
+      );
 }
