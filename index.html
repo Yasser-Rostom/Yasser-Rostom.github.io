@@ -1,21 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <base href="/">
-  <meta name="description" content="Yasser Rostom is a Senior Software Engineer at Zyka LLC (Grabbl), building Flutter mobile apps, white-label platforms, and NestJS backends.">
+
+  <title>Yasser Rostom | Flutter &amp; NestJS Engineer in Dubai</title>
+  <meta name="description" content="Senior Flutter and NestJS engineer in Dubai. Available for contract work: bug fixes, app stabilization, new features and full mobile app builds. Shipped a UAE PASS–enabled app used by 50+ UAE government entities.">
+  <link rel="canonical" href="https://yasser-rostom.github.io/">
+
+  <!-- Link previews (WhatsApp, LinkedIn, Slack, Facebook) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Yasser Rostom">
+  <meta property="og:url" content="https://yasser-rostom.github.io/">
+  <meta property="og:title" content="Yasser Rostom | Flutter &amp; NestJS Engineer in Dubai">
+  <meta property="og:description" content="Contract mobile and backend work for tech teams in Dubai: bug fixes, new features and full app builds in Flutter and NestJS.">
+  <meta property="og:image" content="https://yasser-rostom.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_AE">
+
+  <!-- X / Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yasser9340">
+  <meta name="twitter:title" content="Yasser Rostom | Flutter &amp; NestJS Engineer in Dubai">
+  <meta name="twitter:description" content="Contract mobile and backend work for tech teams in Dubai: bug fixes, new features and full app builds.">
+  <meta name="twitter:image" content="https://yasser-rostom.github.io/og-image.png">
+
+  <!-- Structured data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yasser Rostom",
+    "jobTitle": "Senior Software Engineer, Mobile & Backend",
+    "url": "https://yasser-rostom.github.io/",
+    "image": "https://yasser-rostom.github.io/og-image.png",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" },
+    "knowsAbout": ["Flutter", "Dart", "Android", "Kotlin", "NestJS", "TypeScript", "PostgreSQL", "Redis", "WebSockets", "Firebase", "UAE PASS"],
+    "sameAs": [
+      "https://github.com/yasser-rostom",
+      "https://www.linkedin.com/in/yasser-rostom-8b66a1121/",
+      "https://x.com/yasser9340"
+    ]
+  }
+  </script>
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="portfolio">
+  <meta name="apple-mobile-web-app-title" content="Yasser Rostom">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>Yasser Rostom | Portfolio</title>
   <link rel="manifest" href="manifest.json">
 
   <style>
@@ -37,6 +76,7 @@
       font-family: Arial, Helvetica, sans-serif;
     }
 
+    /* ---------- Loader (unchanged) ---------- */
     #loading {
       position: fixed;
       z-index: 9999;
@@ -48,90 +88,36 @@
       color: var(--ink);
       transition: opacity 220ms ease, visibility 220ms ease;
     }
+    #loading.is-hidden { visibility: hidden; opacity: 0; }
+    .loading-card { width: min(100%, 440px); }
+    .loading-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 52px; }
+    .loading-monogram { font-size: 26px; font-weight: 900; letter-spacing: -2px; }
+    .loading-name { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: 1.6px; }
+    .loading-kicker { display: flex; align-items: center; gap: 9px; color: var(--accent); font-size: 10px; font-weight: 700; letter-spacing: 1.2px; }
+    .loading-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); animation: pulse 1.4s ease-in-out infinite; }
+    .loading-title { margin: 20px 0 10px; font-size: clamp(30px, 8vw, 42px); letter-spacing: -1.8px; line-height: 1.05; }
+    .loading-subtitle { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .loading-track { height: 2px; margin-top: 34px; overflow: hidden; background: #e1e2dc; }
+    .loading-progress { width: 35%; height: 100%; background: var(--accent); animation: progress 1.6s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .45; } }
+    @keyframes progress { from { transform: translateX(-110%); } to { transform: translateX(310%); } }
 
-    #loading.is-hidden {
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    .loading-card {
-      width: min(100%, 440px);
-    }
-
-    .loading-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 52px;
-    }
-
-    .loading-monogram {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: -2px;
-    }
-
-    .loading-name {
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.6px;
-    }
-
-    .loading-kicker {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-    }
-
-    .loading-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--green);
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-
-    .loading-title {
-      margin: 20px 0 10px;
-      font-size: clamp(30px, 8vw, 42px);
-      letter-spacing: -1.8px;
-      line-height: 1.05;
-    }
-
-    .loading-subtitle {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
+    /* ---------- Static summary ----------
+       Read by search engines, link-preview bots and people without JavaScript.
+       Covered by the loader, then removed once Flutter is running. */
+    #static-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      color: var(--ink);
       line-height: 1.6;
     }
-
-    .loading-track {
-      height: 2px;
-      margin-top: 34px;
-      overflow: hidden;
-      background: #e1e2dc;
-    }
-
-    .loading-progress {
-      width: 35%;
-      height: 100%;
-      background: var(--accent);
-      animation: progress 1.6s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      50% { opacity: .45; }
-    }
-
-    @keyframes progress {
-      from { transform: translateX(-110%); }
-      to { transform: translateX(310%); }
-    }
+    #static-content h1 { font-size: 34px; letter-spacing: -1px; line-height: 1.1; margin: 0 0 8px; }
+    #static-content h2 { font-size: 20px; margin: 40px 0 8px; }
+    #static-content h3 { font-size: 16px; margin: 24px 0 2px; }
+    #static-content p, #static-content li { font-size: 15px; }
+    #static-content .meta { color: var(--muted); font-size: 13px; margin: 0; }
+    #static-content a { color: var(--accent); }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -142,9 +128,12 @@
     }
   </style>
 
+  <!-- Without JavaScript the Flutter app never starts, so show the summary instead of an endless loader -->
+  <noscript><style>#loading { display: none; }</style></noscript>
+
   <script>
     // The value below is injected by flutter build, do not touch.
-    const serviceWorkerVersion = "1490347577" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */;
+    const serviceWorkerVersion = "2653357586" /* Flutter's service worker is deprecated and will be removed in a future Flutter release. */;
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
@@ -157,11 +146,53 @@
         <span class="loading-name">YASSER ROSTOM</span>
       </div>
       <div class="loading-kicker"><span class="loading-dot"></span>DUBAI, UAE</div>
-      <h1 class="loading-title">A portfolio, loading.</h1>
+      <p class="loading-title">A portfolio, loading.</p>
       <p class="loading-subtitle">Senior Software Engineer · Mobile &amp; Backend</p>
       <div class="loading-track" aria-hidden="true"><div class="loading-progress"></div></div>
     </div>
   </div>
+
+  <main id="static-content">
+    <h1>Yasser Rostom</h1>
+    <p class="meta">Senior Software Engineer, Mobile &amp; Backend · Dubai, UAE</p>
+    <p>I build Flutter apps and the NestJS backends behind them. I’m available for contract work with tech teams in Dubai and the UAE: bug fixes and app stabilization, new features on an existing product, or a full app built from scratch.</p>
+
+    <h2>How I can help</h2>
+    <ul>
+      <li><strong>Fix and stabilize an app.</strong> Track down crashes, performance problems and release blockers in Flutter or native Android apps.</li>
+      <li><strong>Add features to a live product.</strong> Join your team, take ownership of a piece of work and ship it, from interface to API.</li>
+      <li><strong>Build a new app.</strong> Flutter customer and merchant apps with NestJS, PostgreSQL, payments, real-time features and delivery integrations.</li>
+    </ul>
+
+    <h2>Experience</h2>
+    <h3>Senior Software Engineer, Zyka LLC (Grabbl)</h3>
+    <p class="meta">Remote · Sep 2024 – present</p>
+    <p>Leading full-stack development of a white-label marketplace: Flutter customer and merchant apps, NestJS services and REST APIs, PostgreSQL, real-time features, payment and delivery integrations, and production releases.</p>
+
+    <h3>Mobile Engineer (contract), Intalio</h3>
+    <p class="meta">Dubai · Jun 2024 – Sep 2024</p>
+    <p>Developed an enterprise Flutter correspondence app deployed across more than 50 UAE government entities, with UAE PASS authentication, REST API integrations, PDF editing, translation and voice messaging.</p>
+
+    <h3>Flutter Developer &amp; UI Designer, SpicyFi GmbH</h3>
+    <p class="meta">Remote · Apr 2023 – Jun 2024</p>
+    <p>Worked on iOS and Android cryptocurrency apps, improved performance and stability through refactoring, and built WalletConnect integrations and reward systems.</p>
+
+    <h3>Freelance Mobile Developer</h3>
+    <p class="meta">Jan 2021 – present</p>
+    <p>Delivered 10+ production mobile apps and MVPs for international clients with Flutter and native Android, working directly with stakeholders from concept to release.</p>
+
+    <h2>Skills</h2>
+    <p>Flutter, Dart, Android, Kotlin, NestJS, TypeScript, PostgreSQL, Redis, WebSockets, Firebase, REST APIs, BLoC, Provider, Riverpod, CI/CD, UAE PASS, Figma.</p>
+
+    <h2>Contact</h2>
+    <p>Tell me what you’re working on:
+      <a href="https://api.whatsapp.com/send?phone=971529979983">WhatsApp</a>,
+      <a href="https://www.linkedin.com/in/yasser-rostom-8b66a1121/">LinkedIn</a>,
+      <a href="https://www.upwork.com/freelancers/~01cc61b694f881b170">Upwork</a> or
+      <a href="https://github.com/yasser-rostom">GitHub</a>.
+    </p>
+  </main>
+
   <script>
     window.addEventListener('load', function(ev) {
       // Download main.dart.js
@@ -172,8 +203,10 @@
         onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine().then(function(appRunner) {
             appRunner.runApp();
+            // Flutter is drawing now: drop the static summary and fade out the loader
+            var staticContent = document.getElementById('static-content');
+            if (staticContent) staticContent.remove();
             document.getElementById('loading').classList.add('is-hidden');
-
           });
         }
       });
