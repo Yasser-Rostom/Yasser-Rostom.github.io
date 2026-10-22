@@ -1,28 +1,28 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Build Flutter web
-flutter build web
+set -euo pipefail
 
-# Go to build/web folder
-cd build/web
+# Produce the website files that GitHub Pages will serve.
+flutter build web --release --base-href /
 
-# Initialize git if needed
-git init
+# Keep deployment history separate from the source repository. Flutter recreates
+# build/web on every build, so it must never be used as a Git checkout.
+deploy_dir="$(mktemp -d "${TMPDIR:-/tmp}/yasser-portfolio-gh-pages.XXXXXX")"
+cleanup() {
+  git worktree remove --force "$deploy_dir" 2>/dev/null || true
+}
+trap cleanup EXIT
 
-# Add all files
-git add .
+git fetch origin gh-pages
+git worktree add --detach "$deploy_dir" origin/gh-pages
 
-# Commit changes
-git commit -m "Deploy Flutter Web build"
+rsync -a --delete --exclude .git build/web/ "$deploy_dir/"
 
-# Set branch to gh-pages
-git branch -M gh-pages
+git -C "$deploy_dir" add -A
+if git -C "$deploy_dir" diff --cached --quiet; then
+  echo "GitHub Pages is already up to date."
+  exit 0
+fi
 
-# Add remote (replace with your repo)
-git remote add origin https://github.com/Yasser-Rostom/Yasser-Rostom.github.io.git
-
-# Force push to gh-pages
-git push -f origin gh-pages
-
-# Go back to project root
-cd ../..
+git -C "$deploy_dir" commit -m "Deploy Flutter web"
+git -C "$deploy_dir" push origin HEAD:gh-pages
